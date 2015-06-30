@@ -194,5 +194,8 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+<<<<<<< HEAD
 
 J2i.Net.XinputDocumentation/
+=======
+>>>>>>> e06ec43c67ffa7ba90272b4bbe25a5deaba41317
