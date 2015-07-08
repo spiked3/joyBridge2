@@ -38,7 +38,6 @@ namespace J2i.Net.XInputWrapper
         [FieldOffset(10)]
         public short sThumbRY;
 
-
         public bool IsButtonPressed(int buttonFlags)
         {
             return (wButtons & buttonFlags) == buttonFlags;
@@ -48,8 +47,6 @@ namespace J2i.Net.XInputWrapper
         {
             return (wButtons & buttonFlags) == buttonFlags;
         }
-
-
 
         public void Copy(XInputGamepad source)
         {
