@@ -92,7 +92,7 @@ namespace JoyBridge2
                 System.Diagnostics.Trace.WriteLine(string.Format("DiamondPoint left({0}) right({1})",
                     DiamondPoint.Left, DiamondPoint.Right));
 
-                string jsn = JsonConvert.SerializeObject(new { Cmd = "Pwr", M1 = (float)DiamondPoint.Left, M2 = (float)DiamondPoint.Right });
+                string jsn = JsonConvert.SerializeObject(new { Cmd = "MOV", M1 = (float)DiamondPoint.Left, M2 = (float)DiamondPoint.Right });
                 if (Mqtt?.IsConnected ?? false)
                     Mqtt.Publish("robot1/Cmd", UTF8Encoding.ASCII.GetBytes(jsn));
             }
@@ -100,7 +100,7 @@ namespace JoyBridge2
             {
                 if (++changeDebounce < 10 )
                 {
-                    string jsn = JsonConvert.SerializeObject(new { Cmd = "Pwr", M1 = (float)0, M2 = (float)0 });
+                    string jsn = JsonConvert.SerializeObject(new { Cmd = "MOV", M1 = (float)0, M2 = (float)0 });
                     if (Mqtt?.IsConnected ?? false)
                         Mqtt.Publish("robot1/Cmd", UTF8Encoding.ASCII.GetBytes(jsn));
                 }
@@ -144,14 +144,14 @@ namespace JoyBridge2
 
         private void CheckboxAButton_Checked(object sender, RoutedEventArgs e)
         {
-            string jsn = JsonConvert.SerializeObject(new { Cmd = "Esc", Value = 1 });
+            string jsn = JsonConvert.SerializeObject(new { Cmd = "ESC", Value = 1 });
             if (Mqtt?.IsConnected ?? false)
                 Mqtt.Publish("robot1/Cmd", UTF8Encoding.ASCII.GetBytes(jsn));
         }
 
         private void CheckboxBButton_Checked(object sender, RoutedEventArgs e)
         {
-            string jsn = JsonConvert.SerializeObject(new { Cmd = "Esc", Value = 0 });
+            string jsn = JsonConvert.SerializeObject(new { Cmd = "ESC", Value = 0 });
             if (Mqtt?.IsConnected ?? false)
                 Mqtt.Publish("robot1/Cmd", UTF8Encoding.ASCII.GetBytes(jsn));
         }
